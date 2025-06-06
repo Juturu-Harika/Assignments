@@ -14,12 +14,10 @@ public class ProductManager {
         return true;
     }
 
-    // Retrieve product by ID
     public Product getProduct(int id) {
         return productMap.get(id);
     }
 
-    // Update product by ID
     public boolean updateProduct(int id, Product newProduct) {
         if (!productMap.containsKey(id)) {
             System.out.println("Product not found with ID: " + id);
@@ -29,7 +27,6 @@ public class ProductManager {
         return true;
     }
 
-    // Delete product by ID
     public boolean deleteProduct(int id) {
         if (productMap.remove(id) != null) {
             return true;
@@ -39,19 +36,16 @@ public class ProductManager {
         }
     }
 
-    // List all products
     public List<Product> getAllProducts() {
         return new ArrayList<>(productMap.values());
     }
 
-    // Sort products by ID
     public List<Product> sortById() {
         List<Product> list = getAllProducts();
         list.sort(Comparator.comparingInt(Product::getId));
         return list;
     }
 
-    // Sort products by name
     public List<Product> sortByName() {
         List<Product> list = getAllProducts();
         list.sort(Comparator.comparing(Product::getName));
